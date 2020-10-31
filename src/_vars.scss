@@ -1,0 +1,132 @@
+/*
+  ****************
+  * Fonts
+  ****************
+*/
+$font-family: sans-serif;
+$monospace-font: SFMono-Regular, Monaco, Consolas, "Liberation Mono",
+  "Courier New", monospace;
+
+/*
+  ****************
+  * Margins
+  ****************
+*/
+$margin-x: 1.8rem;
+$margin-y: 1.2rem;
+
+/*
+  ****************
+  * Colors
+  ****************
+*/
+$base-colors: (
+  bg: #ffffff,
+  text-color: #000000,
+  cntrl-color: #aaaaaa,
+  link-color: #0000cc,
+  link-active-color: #880000,
+  generating-info: #505050,
+  header-color: #d9d8d1,
+  title-bar-color: #edece6,
+  footer-text: #555555,
+);
+
+// Diff header color
+$diff-extended-header-colors: (
+  header: #f6f5ee,
+  hash: #777777,
+  info: #b0b0b0,
+);
+
+// diff Colors
+$diff-colors: (
+  to-file: #007000,
+  diff-add: #008800,
+  diff-add-marked: #aaffaa,
+  diff-from-file: #aa0000,
+  diff-rm: #cc0000,
+  diff-rm-marked: #ffaaaa,
+  chunk-header: #990099,
+  chunk-header-border: #ffe0ff,
+  chunk-header-info: #ffeeff,
+  chunk-header-section: #aa22aa,
+  incomplete: #cccccc,
+  nodifference: #600000,
+  diff-nochange: #6666ff,
+  nochange-visited: #d06666,
+);
+
+// Diff tree colors
+$diff-tree-colors: (
+  status_new: #008000,
+  status_deleted: #c00000,
+  status_copied: #777777,
+  status_moved: #70a070,
+);
+
+// Diff chunk colors. Yes, really.
+$diff-chunk-colors: (
+  rm: #fff5f5,
+  add: #f8fff8,
+  change: #fffff0,
+  ctx: #404040,
+);
+
+// Refs
+$ref-colors: (
+  defaults: #ffaaff,
+  default-border: #ffccff #ff00ee #ff00ee #ffccff,
+  ref: #aaaaff,
+  ref-border: #ccccff #0033cc #0033cc #ccccff,
+  tag: #ffffaa,
+  tag-border: #ffffcc #ffee00 #ffee00 #ffffcc,
+  head: #aaffaa,
+  head-border: #ccffcc #00cc33 #00cc33 #ccffcc,
+);
+
+// Tables
+$table-dark: #f6f6f0;
+$table-light: #ffffff;
+$table-hover: #edece6;
+$table-border: #000000;
+
+// RSS logo
+$rss-colors: (
+  rss-logo: rgb(255, 102, 0),
+  rss-hover: #ee5500,
+  rss-border: #fcc7a5 #7d3302 #3e1a01 #ff954e,
+  rss-text: #ffffff,
+  rss-generic: #ff8800,
+  rss-generic-hover: #ee7700,
+);
+
+// log colors
+$timestamp-atnight: #cc0000;
+$timestamp-match: #e00000;
+$signoff-color: #888888;
+
+// line no.
+$line-nr-color: #999999;
+
+// Commit age colors
+$commit-age-colors: (
+  noage: #808080,
+  age0-1: #009900,
+);
+
+// Blame incremental colors
+$blame-colors: (
+  1: #f6fff6,
+  2: #f6f6ff,
+  3: #fff6f6,
+);
+
+// Error colors (used in noscript)
+$err-text: red;
+$err-bg: yellow;
+
+// Progress bar
+$progress-bar-color: #d8d9d0;
+
+// Highlighting colors in _highlighting.scss

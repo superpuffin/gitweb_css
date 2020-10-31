@@ -1,668 +1,737 @@
+@import-normalize;
+@import "vars";
+
+/* Basic styling */
 body {
-	font-family: sans-serif;
-	font-size: small;
-	border: solid #d9d8d1;
-	border-width: 1px;
-	margin: 10px;
-	background-color: #ffffff;
-	color: #000000;
-}
+  font-family: $font-family;
+  font-size: 1rem;
+  background-color: map-get($base-colors, bg);
+  color: map-get($base-colors, text-color);
+  margin: 0 auto;
 
-a {
-	color: #0000cc;
-}
-
-a:hover, a:visited, a:active {
-	color: #880000;
-}
-
-span.cntrl {
-	border: dashed #aaaaaa;
-	border-width: 1px;
-	padding: 0px 2px 0px 2px;
-	margin:  0px 2px 0px 2px;
-}
-
-img.logo {
-	float: right;
-	border-width: 0px;
-}
-
-img.avatar {
-	vertical-align: middle;
-}
-
-img.blob {
-	max-height: 100%;
-	max-width: 100%;
-}
-
-a.list img.avatar {
-	border-style: none;
-}
-
-div.page_header {
-	height: 25px;
-	padding: 8px;
-	font-size: 150%;
-	font-weight: bold;
-	background-color: #d9d8d1;
-}
-
-div.page_header a:visited, a.header {
-	color: #0000cc;
-}
-
-div.page_header a:hover {
-	color: #880000;
-}
-
-div.page_nav {
-	padding: 8px;
-}
-
-div.page_nav a:visited {
-	color: #0000cc;
-}
-
-div.page_path {
-	padding: 8px;
-	font-weight: bold;
-	border: solid #d9d8d1;
-	border-width: 0px 0px 1px;
-}
-
-div.page_footer {
-	height: 22px;
-	padding: 4px 8px;
-	background-color: #d9d8d1;
-}
-
-div.page_footer_text {
-	line-height: 22px;
-	float: left;
-	color: #555555;
-	font-style: italic;
-}
-
-div#generating_info {
-	margin: 4px;
-	font-size: smaller;
-	text-align: center;
-	color: #505050;
-}
-
-div.page_body {
-	padding: 8px;
-	font-family: monospace;
-}
-
-div.title, a.title {
-	display: block;
-	padding: 6px 8px;
-	font-weight: bold;
-	background-color: #edece6;
-	text-decoration: none;
-	color: #000000;
-}
-
-div.readme {
-	padding: 8px;
-}
-
-a.title:hover {
-	background-color: #d9d8d1;
-}
-
-div.title_text {
-	padding: 6px 0px;
-	border: solid #d9d8d1;
-	border-width: 0px 0px 1px;
-	font-family: monospace;
-}
-
-div.log_body {
-	padding: 8px 8px 8px 150px;
-}
-
-span.age {
-	position: relative;
-	float: left;
-	width: 142px;
-	font-style: italic;
-}
-
-span.signoff {
-	color: #888888;
-}
-
-div.log_link {
-	padding: 0px 8px;
-	font-size: 70%;
-	font-family: sans-serif;
-	font-style: normal;
-	position: relative;
-	float: left;
-	width: 136px;
-}
-
-div.list_head {
-	padding: 6px 8px 4px;
-	border: solid #d9d8d1;
-	border-width: 1px 0px 0px;
-	font-style: italic;
-}
-
-.author_date, .author {
-	font-style: italic;
-}
-
-div.author_date {
-	padding: 8px;
-	border: solid #d9d8d1;
-	border-width: 0px 0px 1px 0px;
-}
-
-a.list {
-	text-decoration: none;
-	color: #000000;
-}
-
-a.subject, a.name {
-	font-weight: bold;
-}
-
-table.tags a.subject {
-	font-weight: normal;
-}
-
-a.list:hover {
-	text-decoration: underline;
-	color: #880000;
-}
-
-a.text {
-	text-decoration: none;
-	color: #0000cc;
-}
-
-a.text:visited {
-	text-decoration: none;
-	color: #880000;
-}
-
-a.text:hover {
-	text-decoration: underline;
-	color: #880000;
-}
-
-table {
-	padding: 8px 4px;
-	border-spacing: 0;
-}
-
-table.diff_tree {
-	font-family: monospace;
-}
-
-table.combined.diff_tree th {
-	text-align: center;
-}
-
-table.combined.diff_tree td {
-	padding-right: 24px;
-}
-
-table.combined.diff_tree th.link,
-table.combined.diff_tree td.link {
-	padding: 0px 2px;
-}
-
-table.combined.diff_tree td.nochange a {
-	color: #6666ff;
-}
-
-table.combined.diff_tree td.nochange a:hover,
-table.combined.diff_tree td.nochange a:visited {
-	color: #d06666;
-}
-
-table.blame {
-	border-collapse: collapse;
-}
-
-table.blame td {
-	padding: 0px 5px;
-	font-size: 100%;
-	vertical-align: top;
-}
-
-th {
-	padding: 2px 5px;
-	font-size: 100%;
-	text-align: left;
-}
-
-/* do not change row style on hover for 'blame' view */
-tr.light,
-table.blame .light:hover {
-	background-color: #ffffff;
-}
-
-tr.dark,
-table.blame .dark:hover {
-	background-color: #f6f6f0;
-}
-
-/* currently both use the same, but it can change */
-tr.light:hover,
-tr.dark:hover {
-	background-color: #edece6;
-}
-
-/* boundary commits in 'blame' view */
-/* and commits without "previous" */
-tr.boundary td.sha1,
-tr.no-previous td.linenr {
-	font-weight: bold;
-}
-
-/* for 'blame_incremental', during processing */
-tr.color1 { background-color: #f6fff6; }
-tr.color2 { background-color: #f6f6ff; }
-tr.color3 { background-color: #fff6f6; }
-
-td {
-	padding: 2px 5px;
-	font-size: 100%;
-	vertical-align: top;
-}
-
-td.link, td.selflink {
-	padding: 2px 5px;
-	font-family: sans-serif;
-	font-size: 70%;
-}
-
-td.selflink {
-	padding-right: 0px;
-}
-
-td.sha1 {
-	font-family: monospace;
+  // Fix margin for text els
+  p,
+  dl {
+    margin: $margin-y $margin-x;
+  }
 }
 
 .error {
-	color: red;
-	background-color: yellow;
+  color: $err-text;
+  background-color: $err-bg;
 }
 
-td.current_head {
-	text-decoration: underline;
+a {
+  color: map-get($base-colors, link-color);
+
+  &:hover {
+    color: map-get($base-colors, link-active-color);
+    text-decoration: underline;
+  }
 }
 
-td.category {
-	background-color: #d9d8d1;
-	border-top: 1px solid #000000;
-	border-left: 1px solid #000000;
-	font-weight: bold;
+a:visited,
+a:active {
+  color: map-get($base-colors, link-active-color);
 }
 
-table.diff_tree span.file_status.new {
-	color: #008000;
+span.cntrl {
+  border: dashed map-get($base-colors, cntrl-color);
+  border-width: 1px;
+  padding: 0px 2px 0px 2px;
+  margin: 0px 2px 0px 2px;
 }
 
-table.diff_tree span.file_status.deleted {
-	color: #c00000;
+img.logo {
+  margin-right: 2.2rem;
+  display: flex;
 }
 
-table.diff_tree span.file_status.moved,
-table.diff_tree span.file_status.mode_chnge {
-	color: #777777;
+img.avatar {
+  vertical-align: middle;
 }
 
-table.diff_tree span.file_status.copied {
-  color: #70a070;
+img.blob {
+  max-height: 100%;
+  max-width: 100%;
 }
 
-/* noage: "No commits" */
-table.project_list td.noage {
-	color: #808080;
-	font-style: italic;
+a.list img.avatar {
+  border-style: none;
 }
 
-/* age2: 60*60*24*2 <= age */
-table.project_list td.age2, table.blame td.age2 {
-	font-style: italic;
+/* Page header */
+
+div.page_header {
+  min-height: 50px;
+  padding: 15px;
+  font-size: 150%;
+  font-weight: bold;
+  background-color: map-get($base-colors, header-color);
+  line-height: 150%;
+  display: flex;
+  align-items: center;
+
+  a:visited,
+  a.header {
+    color: map-get($base-colors, link-color);
+  }
+
+  a:hover {
+    color: map-get($base-colors, link-active-color);
+  }
 }
 
-/* age1: 60*60*2 <= age < 60*60*24*2 */
-table.project_list td.age1 {
-	color: #009900;
-	font-style: italic;
+/* Page nav */
+
+div.page_nav {
+  padding: 0.85rem 0.85rem 0.5rem 0;
+  margin: 0 1.8rem;
+  line-height: 1.5rem;
+
+  a:visited {
+    color: map-get($base-colors, link-color);
+  }
 }
 
-table.blame td.age1 {
-	color: #009900;
-	background: transparent;
+div.page_path {
+  padding: 8px;
+  font-weight: bold;
+  border: solid map-get($base-colors, header-color);
+  border-width: 0px 0px 1px;
 }
 
-/* age0: age < 60*60*2 */
-table.project_list td.age0 {
-	color: #009900;
-	font-style: italic;
-	font-weight: bold;
+/* Footer */
+
+div.page_footer {
+  height: 22px;
+  padding: 4px 8px;
+  background-color: map-get($base-colors, header-color);
+  // Note that margins will collapse
+  margin-top: 2rem;
 }
 
-table.blame td.age0 {
-	color: #009900;
-	background: transparent;
-	font-weight: bold;
+div.page_footer_text {
+  line-height: 22px;
+  float: left;
+  color: map-get($base-colors, footer-text);
+  font-style: italic;
 }
 
-td.pre, div.pre, div.diff {
-	font-family: monospace;
-	font-size: 12px;
-	white-space: pre;
+div#generating_info {
+  margin: 4px;
+  font-size: smaller;
+  text-align: center;
+  color: map-get($base-colors, generating-info);
 }
 
-td.mode {
-	font-family: monospace;
+/*
+*
+* Page body
+*
+*/
+
+div.page_body {
+  padding: 8px;
+  font-family: $monospace-font;
+}
+
+div.title,
+a.title {
+  display: block;
+  padding: 6px 8px;
+  font-weight: bold;
+  background-color: map-get($base-colors, title-bar-color);
+  text-decoration: none;
+  color: map-get($base-colors, text-color);
+  text-indent: $margin-x;
+}
+
+div.readme {
+  padding: 8px;
+}
+
+a.title:hover {
+  background-color: map-get($base-colors, header-color);
+}
+
+div.title_text {
+  padding: 6px 0px;
+  border: solid map-get($base-colors, header-color);
+  border-width: 0px 0px 1px;
+  font-family: $monospace-font;
+}
+
+div.log_body {
+  padding: 8px 8px 8px 150px;
+}
+
+span.age {
+  position: relative;
+  float: left;
+  width: 142px;
+  font-style: italic;
+}
+
+span.signoff {
+  color: $signoff-color;
+}
+
+div.log_link {
+  padding: 0px 8px;
+  font-size: 70%;
+  //   font-family: sans-serif;
+  font-style: normal;
+  position: relative;
+  float: left;
+  width: 136px;
+}
+
+div.list_head {
+  padding: 6px 8px 4px;
+  border: solid map-get($base-colors, header-color);
+  border-width: 1px 0px 0px;
+  font-style: italic;
+}
+
+.author_date,
+.author {
+  font-style: italic;
+}
+
+div.author_date {
+  padding: 8px;
+  border: solid map-get($base-colors, header-color);
+  border-width: 0px 0px 1px 0px;
+}
+
+a.list {
+  text-decoration: none;
+  color: map-get($base-colors, text-color);
+
+  &:hover {
+    text-decoration: underline;
+    color: map-get($base-colors, link-active-color);
+  }
+}
+
+a.subject,
+a.name {
+  font-weight: bold;
+}
+
+table.tags a.subject {
+  font-weight: normal;
+}
+
+a.text {
+  text-decoration: none;
+  color: map-get($base-colors, link-color);
+
+  &:visited {
+    text-decoration: none;
+    color: map-get($base-colors, link-active-color);
+  }
+
+  &:hover {
+    text-decoration: underline;
+    color: map-get($base-colors, link-active-color);
+  }
+}
+
+/*
+*
+* Tables
+*
+*/
+
+table {
+  padding: 10px 6px;
+  border-spacing: 0;
+  margin: 0 auto;
+
+  .diff_tree {
+    font-family: $monospace-font;
+  }
+
+  .combined.diff_tree {
+    th {
+      text-align: center;
+    }
+
+    td {
+      padding-right: 24px;
+    }
+
+    th.link,
+    td.link {
+      padding: 0px 2px;
+    }
+
+    td.nochange {
+      a {
+        color: map-get($diff-colors, diff-nochange);
+
+        &:hover,
+        &:visited {
+          color: map-get($diff-colors, nochange-visited);
+        }
+      }
+    }
+  }
+
+  &.blame {
+    border-collapse: collapse;
+
+    td {
+      padding: 0px 5px;
+      font-size: 100%;
+      vertical-align: top;
+    }
+  }
+
+  th {
+    padding: 2px 5px 0.5rem 5px;
+    font-size: 100%;
+    text-align: left;
+  }
+
+  /* do not change row style on hover for 'blame' view */
+  tr.light,
+  &.blame .light:hover {
+    background-color: $table-light;
+  }
+
+  tr.dark,
+  &.blame .dark:hover {
+    background-color: $table-dark;
+  }
+
+  tr {
+    &.light:hover,
+    &.dark:hover {
+      /* currently both use the same, but it can change */
+      background-color: $table-hover;
+    }
+
+    &.boundary td.sha1,
+    &.no-previous td.linenr {
+      /* boundary commits in 'blame' view */
+      /* and commits without "previous" */
+      font-weight: bold;
+    }
+
+    &.color1 {
+      /* for 'blame_incremental', during processing */
+      background-color: map-get($blame-colors, 1);
+    }
+    &.color2 {
+      background-color: map-get($blame-colors, 2);
+    }
+    &.color3 {
+      background-color: map-get($blame-colors, 3);
+    }
+  }
+
+  td {
+    padding: 5px 12px;
+    font-size: 100%;
+    vertical-align: top;
+
+    .link,
+    .selflink {
+      font-size: 80%;
+    }
+
+    .selflink {
+      padding-right: 0px;
+    }
+
+    .sha1 {
+      font-family: $monospace-font;
+    }
+  }
+
+  .current_head {
+    text-decoration: underline;
+  }
+
+  .category {
+    background-color: map-get($base-colors, header-color);
+    border-top: 1px solid $table-border;
+    border-left: 1px solid $table-border;
+    font-weight: bold;
+  }
+
+  .diff_tree span.file_status.new {
+    color: map-get($diff-tree-colors, status_new);
+  }
+
+  .diff_tree span.file_status.deleted {
+    color: map-get($diff-tree-colors, status_deleted);
+  }
+
+  .diff_tree span.file_status.moved,
+  .diff_tree span.file_status.mode_chnge {
+    color: map-get($diff-tree-colors, status_copied);
+  }
+
+  .diff_tree span.file_status.copied {
+    color: map-get($diff-tree-colors, status_moved);
+  }
+
+  .project_list,
+  &.blame {
+    td.noage {
+      /* noage: "No commits" */
+      color: map-get($commit-age-colors, noage);
+      font-style: italic;
+    }
+
+    td.age1 {
+      /* age1: 60*60*2 <= age < 60*60*24*2 */
+      color: map-get($commit-age-colors, age0-1);
+      font-style: italic;
+    }
+
+    td.age2 {
+      /* age2: 60*60*24*2 <= age */
+      font-style: italic;
+    }
+
+    td.age0 {
+      /* age0: age < 60*60*2 */
+      color: map-get($commit-age-colors, age0-1);
+      font-style: italic;
+      font-weight: bold;
+    }
+  }
+
+  /* format of (optional) objects size in 'tree' view */
+  td.size {
+    font-family: $monospace-font;
+    text-align: right;
+  }
+  td.mode {
+    font-family: $monospace-font;
+  }
+}
+
+td.pre,
+div.pre,
+div.diff {
+  font-family: $monospace-font;
+  font-size: 1rem;
+  white-space: pre;
 }
 
 /* progress of blame_interactive */
 div#progress_bar {
-	height: 2px;
-	margin-bottom: -2px;
-	background-color: #d8d9d0;
+  height: 2px;
+  margin-bottom: -2px;
+  background-color: $progress-bar-color;
 }
 div#progress_info {
-	float: right;
-	text-align: right;
-}
-
-/* format of (optional) objects size in 'tree' view */
-td.size {
-	font-family: monospace;
-	text-align: right;
+  float: right;
+  text-align: right;
 }
 
 /* styling of diffs (patchsets): commitdiff and blobdiff views */
-div.diff.header,
-div.diff.extended_header {
-	white-space: normal;
-}
+div.diff {
+  // margin-left: $margin-x;
 
-div.diff.header {
-	font-weight: bold;
+  &.header {
+    font-weight: bold;
 
-	background-color: #edece6;
+    background-color: map-get($base-colors, title-bar-color);
 
-	margin-top: 4px;
-	padding: 4px 0px 2px 0px;
-	border: solid #d9d8d1;
-	border-width: 1px 0px 1px 0px;
-}
+    margin: 4px 0 0 0;
+    padding: 4px 0px 2px 0px;
+    border: solid map-get($base-colors, header-color);
+    border-width: 1px 0px 1px 0px;
 
-div.diff.header a.path {
-	text-decoration: underline;
-}
+    white-space: normal;
 
-div.diff.extended_header,
-div.diff.extended_header a.path,
-div.diff.extended_header a.hash {
-	color: #777777;
-}
+    a.path {
+      text-decoration: underline;
+    }
+  }
 
-div.diff.extended_header .info {
-	color: #b0b0b0;
-}
+  &.extended_header {
+    background-color: map-get($diff-extended-header-colors, header);
+    padding: 2px 0px 2px 0px;
+    margin: 0;
 
-div.diff.extended_header {
-	background-color: #f6f5ee;
-	padding: 2px 0px 2px 0px;
-}
+    white-space: normal;
 
-div.diff a.list,
-div.diff a.path,
-div.diff a.hash {
-	text-decoration: none;
-}
+    a.path,
+    a.hash {
+      color: map-get($diff-extended-header-colors, hash);
+    }
 
-div.diff a.list:hover,
-div.diff a.path:hover,
-div.diff a.hash:hover {
-	text-decoration: underline;
-}
+    &.info {
+      color: map-get($diff-extended-header-colors, info);
+    }
+  }
 
-div.diff.to_file a.path,
-div.diff.to_file {
-	color: #007000;
-}
+  a.list,
+  a.path,
+  a.hash {
+    text-decoration: none;
+  }
 
-div.diff.add {
-	color: #008800;
-}
+  a.list:hover,
+  a.path:hover,
+  a.hash:hover {
+    text-decoration: underline;
+  }
 
-div.diff.add span.marked {
-	background-color: #aaffaa;
-}
+  &.to_file a.path,
+  &.to_file {
+    color: map-get($diff-colors, to-file);
+  }
 
-div.diff.from_file a.path,
-div.diff.from_file {
-	color: #aa0000;
-}
+  &.add {
+    color: map-get($diff-colors, diff-add);
+  }
 
-div.diff.rem {
-	color: #cc0000;
-}
+  &.add span.marked {
+    background-color: map-get($diff-colors, diff-add-marked);
+  }
 
-div.diff.rem span.marked {
-	background-color: #ffaaaa;
-}
+  &.from_file a.path,
+  &.from_file {
+    color: map-get($diff-colors, diff-from-file);
+  }
 
-div.diff.chunk_header a,
-div.diff.chunk_header {
-	color: #990099;
-}
+  &.rem {
+    color: map-get($diff-colors, diff-rm);
+  }
 
-div.diff.chunk_header {
-	border: dotted #ffe0ff;
-	border-width: 1px 0px 0px 0px;
-	margin-top: 2px;
-}
+  &.rem span.marked {
+    background-color: map-get($diff-colors, diff-rm-marked);
+  }
 
-div.diff.chunk_header span.chunk_info {
-	background-color: #ffeeff;
-}
+  &.chunk_header a,
+  &.chunk_header {
+    color: map-get($diff-colors, chunk-header);
+  }
 
-div.diff.chunk_header span.section {
-	color: #aa22aa;
-}
+  &.chunk_header {
+    border: dotted map-get($diff-colors, chunk-header-border);
+    border-width: 1px 0px 0px 0px;
+    margin-top: 2px;
+  }
 
-div.diff.incomplete {
-	color: #cccccc;
-}
+  &.chunk_header span.chunk_info {
+    background-color: map-get($diff-colors, chunk-header-info);
+  }
 
-div.diff.nodifferences {
-	font-weight: bold;
-	color: #600000;
+  &.chunk_header span.section {
+    color: map-get($diff-colors, chunk-header-section);
+  }
+
+  &.incomplete {
+    color: map-get($diff-colors, incomplete);
+  }
+
+  &.nodifferences {
+    font-weight: bold;
+    color: map-get($diff-colors, nodifference);
+  }
 }
 
 /* side-by-side diff */
 div.chunk_block {
-	overflow: hidden;
-}
+  overflow: hidden;
 
-div.chunk_block div.old {
-	float: left;
-	width: 50%;
-	overflow: hidden;
-}
+  div.old {
+    float: left;
+    width: 50%;
+    overflow: hidden;
+  }
 
-div.chunk_block div.new {
-	margin-left: 50%;
-	width: 50%;
-}
+  div.new {
+    margin-left: 50%;
+    width: 50%;
+  }
 
-div.chunk_block.rem div.old div.diff.rem {
-	background-color: #fff5f5;
+  &.rem div.old div.diff.rem {
+    background-color: map-get($diff-chunk-colors, rm);
+  }
+  &.add div.new div.diff.add {
+    background-color: map-get($diff-chunk-colors, "add");
+  }
+  &.chg div div.diff {
+    background-color: map-get($diff-chunk-colors, change);
+  }
+  &.ctx div div.diff.ctx {
+    color: map-get($diff-chunk-colors, ctx);
+  }
 }
-div.chunk_block.add div.new div.diff.add {
-	background-color: #f8fff8;
-}
-div.chunk_block.chg div     div.diff {
-	background-color: #fffff0;
-}
-div.chunk_block.ctx div     div.diff.ctx {
-	color: #404040;
-}
-
 
 div.index_include {
-	border: solid #d9d8d1;
-	border-width: 0px 0px 1px;
-	padding: 12px 8px;
+  border: solid map-get($base-colors, header-color);
+  border-width: 0px 0px 1px;
+  padding: 12px 8px;
 }
 
 div.search {
-	font-size: 100%;
-	font-weight: normal;
-	margin: 4px 8px;
-	float: right;
-	top: 56px;
-	right: 12px
+  margin: 4px $margin-x;
+  float: right;
+  padding: 0.85rem 0.85rem 0.5rem 0px;
+
+  input[type="checkbox"] {
+    margin: 0 0.2rem;
+  }
 }
 
 div.projsearch {
-	text-align: center;
-	margin: 20px 0px;
-}
+  text-align: center;
+  margin: 20px 0px;
 
-div.projsearch form {
-	margin-bottom: 2px;
+  form {
+    margin-bottom: 2px;
+
+    input[type="checkbox"] {
+      margin: 0 0.2rem;
+    }
+  }
 }
 
 td.linenr {
-	text-align: right;
+  text-align: right;
 }
 
 a.linenr {
-	color: #999999;
-	text-decoration: none
+  color: $line-nr-color;
+  text-decoration: none;
 }
 
-a.rss_logo {
-	float: right;
-	padding: 3px 5px;
-	line-height: 10px;
-	border: 1px solid;
-	border-color: #fcc7a5 #7d3302 #3e1a01 #ff954e;
-	color: #ffffff;
-	background-color: #ff6600;
-	font-weight: bold;
-	font-family: sans-serif;
-	font-size: 70%;
-	text-align: center;
-	text-decoration: none;
+/* RSS logo */
+a {
+  &.rss_logo {
+    float: right;
+    padding: 3px 5px;
+    line-height: 10px;
+    border: 1px solid;
+    border-color: map-get($rss-colors, rss-border);
+    color: map-get($rss-colors, rss-text);
+    background-color: map-get($rss-colors, rss-logo);
+    font-weight: bold;
+    font-family: sans-serif;
+    font-size: 70%;
+    text-align: center;
+    text-decoration: none;
+  }
+
+  &.rss_logo:hover {
+    background-color: map-get($rss-colors, rss-hover);
+  }
+
+  &.rss_logo.generic {
+    background-color: map-get($rss-colors, rss-generic);
+  }
+
+  &.rss_logo.generic:hover {
+    background-color: map-get($rss-colors, rss-generic-hover);
+  }
 }
 
-a.rss_logo:hover {
-	background-color: #ee5500;
-}
+span.refs {
+  > span {
+    padding: 0px 4px;
+    font-size: 70%;
+    // font-weight: normal;
+    border: 1px solid;
+    background-color: map-get($ref-colors, defaults);
+    border-color: map-get($ref-colors, default-border);
 
-a.rss_logo.generic {
-	background-color: #ff8800;
-}
+    a {
+      text-decoration: none;
+      color: inherit;
 
-a.rss_logo.generic:hover {
-	background-color: #ee7700;
-}
+      &:hover {
+        text-decoration: underline;
+      }
+    }
 
-span.refs span {
-	padding: 0px 4px;
-	font-size: 70%;
-	font-weight: normal;
-	border: 1px solid;
-	background-color: #ffaaff;
-	border-color: #ffccff #ff00ee #ff00ee #ffccff;
-}
+    &.indirect {
+      font-style: italic;
+    }
 
-span.refs span a {
-	text-decoration: none;
-	color: inherit;
-}
+    &.ref {
+      background-color: map-get($ref-colors, ref);
+      border-color: map-get($ref-colors, ref-border);
+    }
 
-span.refs span a:hover {
-	text-decoration: underline;
-}
+    &.tag {
+      background-color: map-get($ref-colors, tag);
+      border-color: map-get($ref-colors, tag-border);
+    }
 
-span.refs span.indirect {
-	font-style: italic;
-}
+    &.head {
+      background-color: map-get($ref-colors, head);
+      border-color: map-get($ref-colors, head-border);
+    }
+  }
 
-span.refs span.ref {
-	background-color: #aaaaff;
-	border-color: #ccccff #0033cc #0033cc #ccccff;
-}
+  &.atnight {
+    color: $timestamp-atnight;
+  }
 
-span.refs span.tag {
-	background-color: #ffffaa;
-	border-color: #ffffcc #ffee00 #ffee00 #ffffcc;
-}
-
-span.refs span.head {
-	background-color: #aaffaa;
-	border-color: #ccffcc #00cc33 #00cc33 #ccffcc;
-}
-
-span.atnight {
-	color: #cc0000;
-}
-
-span.match {
-	color: #e00000;
+  &.match {
+    color: $timestamp-match;
+  }
 }
 
 div.binary {
-	font-style: italic;
+  font-style: italic;
 }
 
 div.remote {
-	margin: .5em;
-	border: 1px solid #d9d8d1;
-	display: inline-block;
+  margin: 0.5rem $margin-x;
+  border: 1px solid map-get($base-colors, header-color);
+  display: inline-block;
 }
 
 /* JavaScript-based timezone manipulation */
 
-.popup { /* timezone selection UI */
-	position: absolute;
-	/* "top: 0; right: 0;" would be better, if not for bugs in browsers */
-	top: 0; left: 0;
-	border: 1px solid;
-	padding: 2px;
-	background-color: #f0f0f0;
-	font-style: normal;
-	color: #000000;
-	cursor: auto;
+.popup {
+  /* timezone selection UI */
+  position: absolute;
+  /* "top: 0; right: 0;" would be better, if not for bugs in browsers */
+  top: 0;
+  left: 0;
+  min-width: 150px;
+  border: 1.5px solid;
+  padding: 12px 4px 4px;
+  background-color: map-get($base-colors, title-bar-color);
+  //   font-style: normal;
+  cursor: auto;
+
+  select {
+    width: 100%;
+  }
+
+  .close-button {
+    /* close timezone selection UI without selecting */
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    border: 1.5px solid black;
+    border-right: 0;
+    border-top: 0;
+    width: 16px;
+    height: 14px;
+    font-size: 12px;
+    font-weight: bold;
+    text-align: center;
+    background-color: #fd8282;
+    cursor: pointer;
+    line-height: 120%;
+    margin: 0;
+  }
 }
 
-.close-button { /* close timezone selection UI without selecting */
-	/* float doesn't work within absolutely positioned container,
-	 * if width of container is not set explicitly */
-	/* float: right; */
-	position: absolute;
-	top: 0px; right: 0px;
-	border:  1px solid green;
-	margin:  1px 1px 1px 1px;
-	padding-bottom: 2px;
-	width:     12px;
-	height:    10px;
-	font-size:  9px;
-	font-weight: bold;
-	text-align: center;
-	background-color: #fff0f0;
-	cursor: pointer;
-}
-
+@import "highlighting";
