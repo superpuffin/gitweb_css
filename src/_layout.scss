@@ -1,0 +1,274 @@
+/* Page header */
+
+div.page_header {
+  min-height: 50px;
+  padding: 1em;
+  font-size: 1.5rem;
+  font-weight: bold;
+  background-color: map-get($base-colors, header-color);
+  line-height: 150%;
+  display: flex;
+  align-items: center;
+
+  a:visited,
+  a.header {
+    color: map-get($base-colors, link-color);
+  }
+
+  a:hover {
+    color: map-get($base-colors, link-active-color);
+  }
+}
+
+/* Page nav */
+
+div.page_nav {
+  padding: 0.85rem 0.85rem 0.5rem 0;
+  margin: 0 $margin-x;
+
+  a:visited {
+    color: map-get($base-colors, link-color);
+  }
+}
+
+div.page_path {
+  padding: 8px;
+  font-weight: bold;
+  border: solid map-get($base-colors, header-color);
+  border-width: 0px 0px 1px;
+}
+
+/* Footer */
+
+div.page_footer {
+  display: flex;
+  flex-wrap: nowrap;
+  padding: 1em;
+  background-color: map-get($base-colors, header-color);
+  // Note that margins will collapse
+  margin-top: 2rem;
+
+  &.fixed {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    max-width: 100%;
+  }
+}
+
+div.page_footer_text {
+  color: map-get($base-colors, footer-text);
+  font-style: italic;
+  overflow-x: hidden;
+  align-self: center;
+
+  &:after {
+    content: "";
+    // This is a hack
+    padding-right: 10000px;
+    display: block;
+  }
+}
+
+div#generating_info {
+  margin: 4px;
+  font-size: smaller;
+  text-align: center;
+  color: map-get($base-colors, generating-info);
+}
+
+/* Page body */
+
+div.page_body {
+  padding: 8px;
+  font-family: $monospace-font;
+  margin: $margin-y $margin-x;
+}
+
+/* RSS logo */
+a {
+  &.rss_logo {
+    float: right;
+    padding: 0.6em 1em;
+    margin: 0 0.4em;
+    line-height: 10px;
+    border: 1px solid;
+    border-color: map-get($rss-colors, rss-border);
+    color: map-get($rss-colors, rss-text);
+    background-color: map-get($rss-colors, rss-logo);
+    font-weight: bold;
+    font-family: sans-serif;
+    font-size: 80%;
+    text-align: center;
+    text-decoration: none;
+    display: flex;
+    align-self: center;
+  }
+
+  &.rss_logo:hover {
+    background-color: map-get($rss-colors, rss-hover);
+  }
+
+  &.rss_logo.generic {
+    background-color: map-get($rss-colors, rss-generic);
+  }
+
+  &.rss_logo.generic:hover {
+    background-color: map-get($rss-colors, rss-generic-hover);
+  }
+}
+
+div.title,
+a.title {
+  display: block;
+  padding: 0.7em 0;
+  font-size: 1.25rem;
+  font-weight: bold;
+  background-color: map-get($base-colors, title-bar-color);
+  text-decoration: none;
+  color: map-get($base-colors, text-color);
+  text-indent: $margin-x;
+}
+
+div.readme {
+  padding: 8px;
+}
+
+a.title:hover {
+  background-color: map-get($base-colors, header-color);
+}
+
+div.title_text {
+  padding: 6px 0px;
+  border: solid map-get($base-colors, header-color);
+  border-width: 0px 0px 1px;
+  font-family: $monospace-font;
+}
+
+div.log_body {
+  padding: 8px 8px 8px 150px;
+}
+
+span.age {
+  position: relative;
+  float: left;
+  width: 142px;
+  font-style: italic;
+}
+
+span.signoff {
+  color: $signoff-color;
+}
+
+div.log_link {
+  padding: 0px 8px;
+  font-size: 70%;
+  //   font-family: sans-serif;
+  font-style: normal;
+  position: relative;
+  float: left;
+  width: 136px;
+}
+
+div.list_head {
+  padding: 6px 8px 4px;
+  border: solid map-get($base-colors, header-color);
+  border-width: 1px 0px 0px;
+  font-style: italic;
+}
+
+.author_date,
+.author {
+  font-style: italic;
+}
+
+div.author_date {
+  padding: 8px;
+  border: solid map-get($base-colors, header-color);
+  border-width: 0px 0px 1px 0px;
+}
+
+a.list {
+  text-decoration: none;
+  color: map-get($base-colors, text-color);
+
+  &:hover {
+    text-decoration: underline;
+    color: map-get($base-colors, link-active-color);
+  }
+}
+
+a.subject,
+a.name {
+  font-weight: bold;
+}
+
+a.text {
+  text-decoration: none;
+  color: map-get($base-colors, link-color);
+
+  &:visited {
+    text-decoration: none;
+    color: map-get($base-colors, link-active-color);
+  }
+
+  &:hover {
+    text-decoration: underline;
+    color: map-get($base-colors, link-active-color);
+  }
+}
+
+td.pre,
+div.pre,
+div.diff {
+  font-family: $monospace-font;
+  font-size: 1rem;
+  white-space: pre;
+}
+
+div.binary {
+  font-style: italic;
+}
+
+div.remote {
+  margin: 0.5rem $margin-x;
+  border: 1px solid map-get($base-colors, header-color);
+  display: inline-block;
+}
+
+a.linenr {
+  color: $line-nr-color;
+  text-decoration: none;
+}
+
+/*
+* `$home_text` --> div.index_include
+*/
+div.index_include {
+  border: solid map-get($base-colors, header-color);
+  border-width: 0px 0px 1px;
+  padding: 12px 8px;
+}
+
+div.search {
+  margin: 4px $margin-x;
+  float: right;
+  padding: 0.85rem 0.85rem 0.5rem 0px;
+
+  input[type="checkbox"] {
+    margin: 0 0.2rem;
+  }
+}
+
+div.projsearch {
+  text-align: center;
+  margin: 20px 0px;
+
+  form {
+    margin-bottom: 2px;
+
+    input[type="checkbox"] {
+      margin: 0 0.2rem;
+    }
+  }
+}

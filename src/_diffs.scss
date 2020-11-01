@@ -1,0 +1,132 @@
+/* styling of diffs (patchsets): commitdiff and blobdiff views */
+div.diff {
+  // margin-left: $margin-x;
+
+  &.header {
+    font-weight: bold;
+
+    background-color: map-get($base-colors, title-bar-color);
+
+    padding: 0.4em;
+    border: solid map-get($base-colors, header-color);
+    border-width: 1px 0px 1px 0px;
+
+    white-space: normal;
+
+    a.path {
+      text-decoration: underline;
+    }
+  }
+
+  &.extended_header {
+    background-color: map-get($diff-extended-header-colors, header);
+    padding: 0.4em;
+    margin: 0;
+
+    white-space: normal;
+
+    a.path,
+    a.hash {
+      color: map-get($diff-extended-header-colors, hash);
+    }
+
+    &.info {
+      color: map-get($diff-extended-header-colors, info);
+    }
+  }
+
+  a.list,
+  a.path,
+  a.hash {
+    text-decoration: none;
+  }
+
+  a.list:hover,
+  a.path:hover,
+  a.hash:hover {
+    text-decoration: underline;
+  }
+
+  &.to_file a.path,
+  &.to_file {
+    color: map-get($diff-colors, to-file);
+  }
+
+  &.add {
+    color: map-get($diff-colors, diff-add);
+  }
+
+  &.add span.marked {
+    background-color: map-get($diff-colors, diff-add-marked);
+  }
+
+  &.from_file a.path,
+  &.from_file {
+    color: map-get($diff-colors, diff-from-file);
+  }
+
+  &.rem {
+    color: map-get($diff-colors, diff-rm);
+  }
+
+  &.rem span.marked {
+    background-color: map-get($diff-colors, diff-rm-marked);
+  }
+
+  &.chunk_header a,
+  &.chunk_header {
+    color: map-get($diff-colors, chunk-header);
+  }
+
+  &.chunk_header {
+    border: dotted map-get($diff-colors, chunk-header-border);
+    border-width: 1px 0px 0px 0px;
+    margin-top: 2px;
+  }
+
+  &.chunk_header span.chunk_info {
+    background-color: map-get($diff-colors, chunk-header-info);
+  }
+
+  &.chunk_header span.section {
+    color: map-get($diff-colors, chunk-header-section);
+  }
+
+  &.incomplete {
+    color: map-get($diff-colors, incomplete);
+  }
+
+  &.nodifferences {
+    font-weight: bold;
+    color: map-get($diff-colors, nodifference);
+  }
+}
+
+/* side-by-side diff */
+div.chunk_block {
+  overflow: hidden;
+
+  div.old {
+    float: left;
+    width: 50%;
+    overflow: hidden;
+  }
+
+  div.new {
+    margin-left: 50%;
+    width: 50%;
+  }
+
+  &.rem div.old div.diff.rem {
+    background-color: map-get($diff-chunk-colors, rm);
+  }
+  &.add div.new div.diff.add {
+    background-color: map-get($diff-chunk-colors, "add");
+  }
+  &.chg div div.diff {
+    background-color: map-get($diff-chunk-colors, change);
+  }
+  &.ctx div div.diff.ctx {
+    color: map-get($diff-chunk-colors, ctx);
+  }
+}

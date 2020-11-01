@@ -1,0 +1,21 @@
+/* progress of blame_interactive */
+div#progress_bar {
+  height: 2px;
+  margin-bottom: -2px;
+  background-color: $progress-bar-color;
+}
+div#progress_info {
+  float: right;
+  text-align: right;
+}
+
+// Color timestamps
+span {
+  &.atnight {
+    color: $timestamp-atnight;
+  }
+
+  &.match {
+    color: $timestamp-match;
+  }
+}

@@ -1,0 +1,63 @@
+/* Basic styling */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: $font-family;
+  font-size: 1rem;
+  background-color: map-get($base-colors, bg);
+  color: map-get($base-colors, text-color);
+  margin: 0 auto;
+  min-height: 100%;
+
+  // Fix margin for text els
+  p,
+  dl {
+    margin: $margin-y $margin-x;
+  }
+}
+
+.error {
+  color: $err-text;
+  background-color: $err-bg;
+}
+
+a {
+  color: map-get($base-colors, link-color);
+
+  &:hover {
+    color: map-get($base-colors, link-active-color);
+    text-decoration: underline;
+  }
+}
+
+a:visited,
+a:active {
+  color: map-get($base-colors, link-active-color);
+}
+
+span.cntrl {
+  border: dashed map-get($base-colors, cntrl-color);
+  border-width: 1px;
+  padding: 0px 2px 0px 2px;
+  margin: 0px 2px 0px 2px;
+}
+
+img.logo {
+  margin-right: 2.2rem;
+  display: flex;
+}
+
+img.avatar {
+  vertical-align: middle;
+}
+
+img.blob {
+  max-height: 100%;
+  max-width: 100%;
+}
+
+a.list img.avatar {
+  border-style: none;
+}

@@ -1,0 +1,38 @@
+/* JavaScript-based timezone manipulation */
+
+.popup {
+  /* timezone selection UI */
+  position: absolute;
+  /* "top: 0; right: 0;" would be better, if not for bugs in browsers */
+  top: 0;
+  left: 0;
+  min-width: 150px;
+  border: 1.5px solid;
+  padding: 12px 4px 4px;
+  background-color: map-get($base-colors, title-bar-color);
+  //   font-style: normal;
+  cursor: auto;
+
+  select {
+    width: 100%;
+  }
+
+  .close-button {
+    /* close timezone selection UI without selecting */
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    border: 1.5px solid black;
+    border-right: 0;
+    border-top: 0;
+    width: 16px;
+    height: 14px;
+    font-size: 12px;
+    font-weight: bold;
+    text-align: center;
+    background-color: #fd8282;
+    cursor: pointer;
+    line-height: 120%;
+    margin: 0;
+  }
+}

@@ -1,0 +1,182 @@
+/*
+*
+* Tables
+*
+*/
+
+table {
+  padding: 10px 6px;
+  border-spacing: 0;
+  margin: 0 auto;
+
+  .diff_tree {
+    font-family: $monospace-font;
+  }
+
+  .combined.diff_tree {
+    th {
+      text-align: center;
+    }
+
+    td {
+      padding-right: 24px;
+    }
+
+    th.link,
+    td.link {
+      padding: 0px 2px;
+    }
+
+    td.nochange {
+      a {
+        color: map-get($diff-colors, diff-nochange);
+
+        &:hover,
+        &:visited {
+          color: map-get($diff-colors, nochange-visited);
+        }
+      }
+    }
+  }
+
+  &.blame {
+    border-collapse: collapse;
+
+    td {
+      padding: 0px 5px;
+      vertical-align: top;
+    }
+  }
+
+  th {
+    padding: 2px 5px 0.5rem 5px;
+    text-align: left;
+  }
+
+  /* do not change row style on hover for 'blame' view */
+  tr.light,
+  &.blame .light:hover {
+    background-color: $table-light;
+  }
+
+  tr.dark,
+  &.blame .dark:hover {
+    background-color: $table-dark;
+  }
+
+  tr {
+    &.light:hover,
+    &.dark:hover {
+      /* currently both use the same, but it can change */
+      background-color: $table-hover;
+    }
+
+    &.boundary td.sha1,
+    &.no-previous td.linenr {
+      /* boundary commits in 'blame' view */
+      /* and commits without "previous" */
+      font-weight: bold;
+    }
+
+    &.color1 {
+      /* for 'blame_incremental', during processing */
+      background-color: map-get($blame-colors, 1);
+    }
+    &.color2 {
+      background-color: map-get($blame-colors, 2);
+    }
+    &.color3 {
+      background-color: map-get($blame-colors, 3);
+    }
+  }
+
+  td {
+    padding: 0.2em 0.35em;
+    vertical-align: top;
+
+    .link,
+    .selflink {
+      font-size: 80%;
+    }
+
+    .selflink {
+      padding-right: 0px;
+    }
+
+    .sha1 {
+      font-family: $monospace-font;
+    }
+  }
+
+  .current_head {
+    text-decoration: underline;
+  }
+
+  .category {
+    background-color: map-get($base-colors, header-color);
+    border-top: 1px solid $table-border;
+    border-left: 1px solid $table-border;
+    font-weight: bold;
+  }
+
+  .diff_tree span.file_status.new {
+    color: map-get($diff-tree-colors, status_new);
+  }
+
+  .diff_tree span.file_status.deleted {
+    color: map-get($diff-tree-colors, status_deleted);
+  }
+
+  .diff_tree span.file_status.moved,
+  .diff_tree span.file_status.mode_chnge {
+    color: map-get($diff-tree-colors, status_copied);
+  }
+
+  .diff_tree span.file_status.copied {
+    color: map-get($diff-tree-colors, status_moved);
+  }
+
+  .project_list,
+  &.blame {
+    td.noage {
+      /* noage: "No commits" */
+      color: map-get($commit-age-colors, noage);
+      font-style: italic;
+    }
+
+    td.age1 {
+      /* age1: 60*60*2 <= age < 60*60*24*2 */
+      color: map-get($commit-age-colors, age0-1);
+      font-style: italic;
+    }
+
+    td.age2 {
+      /* age2: 60*60*24*2 <= age */
+      font-style: italic;
+    }
+
+    td.age0 {
+      /* age0: age < 60*60*2 */
+      color: map-get($commit-age-colors, age0-1);
+      font-style: italic;
+      font-weight: bold;
+    }
+  }
+
+  /* format of (optional) objects size in 'tree' view */
+  td.size {
+    font-family: $monospace-font;
+    text-align: right;
+  }
+  td.mode {
+    font-family: $monospace-font;
+  }
+
+  &.tags a.subject {
+    font-weight: normal;
+  }
+
+  td.linenr {
+    text-align: right;
+  }
+}

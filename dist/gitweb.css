@@ -258,12 +258,16 @@ summary {
   ****************
 */
 /* Basic styling */
+* {
+  box-sizing: border-box; }
+
 body {
   font-family: sans-serif;
   font-size: 1rem;
   background-color: #ffffff;
   color: #000000;
-  margin: 0 auto; }
+  margin: 0 auto;
+  min-height: 100%; }
   body p,
   body dl {
     margin: 1.2rem 1.8rem; }
@@ -305,8 +309,8 @@ a.list img.avatar {
 /* Page header */
 div.page_header {
   min-height: 50px;
-  padding: 15px;
-  font-size: 150%;
+  padding: 1em;
+  font-size: 1.5rem;
   font-weight: bold;
   background-color: #d9d8d1;
   line-height: 150%;
@@ -321,8 +325,7 @@ div.page_header {
 /* Page nav */
 div.page_nav {
   padding: 0.85rem 0.85rem 0.5rem 0;
-  margin: 0 1.8rem;
-  line-height: 1.5rem; }
+  margin: 0 1.8rem; }
   div.page_nav a:visited {
     color: #0000cc; }
 
@@ -334,16 +337,26 @@ div.page_path {
 
 /* Footer */
 div.page_footer {
-  height: 22px;
-  padding: 4px 8px;
+  display: flex;
+  flex-wrap: nowrap;
+  padding: 1em;
   background-color: #d9d8d1;
   margin-top: 2rem; }
+  div.page_footer.fixed {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    max-width: 100%; }
 
 div.page_footer_text {
-  line-height: 22px;
-  float: left;
   color: #555555;
-  font-style: italic; }
+  font-style: italic;
+  overflow-x: hidden;
+  align-self: center; }
+  div.page_footer_text:after {
+    content: "";
+    padding-right: 10000px;
+    display: block; }
 
 div#generating_info {
   margin: 4px;
@@ -351,19 +364,44 @@ div#generating_info {
   text-align: center;
   color: #505050; }
 
-/*
-*
-* Page body
-*
-*/
+/* Page body */
 div.page_body {
   padding: 8px;
-  font-family: SFMono-Regular, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; }
+  font-family: SFMono-Regular, Monaco, Menlo, "Cascadia Code", Consolas, "Liberation Mono", "Courier New", monospace;
+  margin: 1.2rem 1.8rem; }
+
+/* RSS logo */
+a.rss_logo {
+  float: right;
+  padding: 0.6em 1em;
+  margin: 0 0.4em;
+  line-height: 10px;
+  border: 1px solid;
+  border-color: #fcc7a5 #7d3302 #3e1a01 #ff954e;
+  color: #ffffff;
+  background-color: #ff6600;
+  font-weight: bold;
+  font-family: sans-serif;
+  font-size: 80%;
+  text-align: center;
+  text-decoration: none;
+  display: flex;
+  align-self: center; }
+
+a.rss_logo:hover {
+  background-color: #ee5500; }
+
+a.rss_logo.generic {
+  background-color: #ff8800; }
+
+a.rss_logo.generic:hover {
+  background-color: #ee7700; }
 
 div.title,
 a.title {
   display: block;
-  padding: 6px 8px;
+  padding: 0.7em 0;
+  font-size: 1.25rem;
   font-weight: bold;
   background-color: #edece6;
   text-decoration: none;
@@ -380,7 +418,7 @@ div.title_text {
   padding: 6px 0px;
   border: solid #d9d8d1;
   border-width: 0px 0px 1px;
-  font-family: SFMono-Regular, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; }
+  font-family: SFMono-Regular, Monaco, Menlo, "Cascadia Code", Consolas, "Liberation Mono", "Courier New", monospace; }
 
 div.log_body {
   padding: 8px 8px 8px 150px; }
@@ -428,9 +466,6 @@ a.subject,
 a.name {
   font-weight: bold; }
 
-table.tags a.subject {
-  font-weight: normal; }
-
 a.text {
   text-decoration: none;
   color: #0000cc; }
@@ -440,6 +475,48 @@ a.text {
   a.text:hover {
     text-decoration: underline;
     color: #880000; }
+
+td.pre,
+div.pre,
+div.diff {
+  font-family: SFMono-Regular, Monaco, Menlo, "Cascadia Code", Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size: 1rem;
+  white-space: pre; }
+
+div.binary {
+  font-style: italic; }
+
+div.remote {
+  margin: 0.5rem 1.8rem;
+  border: 1px solid #d9d8d1;
+  display: inline-block; }
+
+a.linenr {
+  color: #999999;
+  text-decoration: none; }
+
+/*
+* `$home_text` --> div.index_include
+*/
+div.index_include {
+  border: solid #d9d8d1;
+  border-width: 0px 0px 1px;
+  padding: 12px 8px; }
+
+div.search {
+  margin: 4px 1.8rem;
+  float: right;
+  padding: 0.85rem 0.85rem 0.5rem 0px; }
+  div.search input[type="checkbox"] {
+    margin: 0 0.2rem; }
+
+div.projsearch {
+  text-align: center;
+  margin: 20px 0px; }
+  div.projsearch form {
+    margin-bottom: 2px; }
+    div.projsearch form input[type="checkbox"] {
+      margin: 0 0.2rem; }
 
 /*
 *
@@ -453,7 +530,7 @@ table {
   /* do not change row style on hover for 'blame' view */
   /* format of (optional) objects size in 'tree' view */ }
   table .diff_tree {
-    font-family: SFMono-Regular, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; }
+    font-family: SFMono-Regular, Monaco, Menlo, "Cascadia Code", Consolas, "Liberation Mono", "Courier New", monospace; }
   table .combined.diff_tree th {
     text-align: center; }
   table .combined.diff_tree td {
@@ -469,11 +546,9 @@ table {
     border-collapse: collapse; }
     table.blame td {
       padding: 0px 5px;
-      font-size: 100%;
       vertical-align: top; }
   table th {
     padding: 2px 5px 0.5rem 5px;
-    font-size: 100%;
     text-align: left; }
   table tr.light,
   table.blame .light:hover {
@@ -497,8 +572,7 @@ table {
   table tr.color3 {
     background-color: #fff6f6; }
   table td {
-    padding: 5px 12px;
-    font-size: 100%;
+    padding: 0.2em 0.35em;
     vertical-align: top; }
     table td .link,
     table td .selflink {
@@ -506,7 +580,7 @@ table {
     table td .selflink {
       padding-right: 0px; }
     table td .sha1 {
-      font-family: SFMono-Regular, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; }
+      font-family: SFMono-Regular, Monaco, Menlo, "Cascadia Code", Consolas, "Liberation Mono", "Courier New", monospace; }
   table .current_head {
     text-decoration: underline; }
   table .category {
@@ -540,34 +614,20 @@ table {
     font-style: italic;
     font-weight: bold; }
   table td.size {
-    font-family: SFMono-Regular, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    font-family: SFMono-Regular, Monaco, Menlo, "Cascadia Code", Consolas, "Liberation Mono", "Courier New", monospace;
     text-align: right; }
   table td.mode {
-    font-family: SFMono-Regular, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; }
-
-td.pre,
-div.pre,
-div.diff {
-  font-family: SFMono-Regular, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-  font-size: 1rem;
-  white-space: pre; }
-
-/* progress of blame_interactive */
-div#progress_bar {
-  height: 2px;
-  margin-bottom: -2px;
-  background-color: #d8d9d0; }
-
-div#progress_info {
-  float: right;
-  text-align: right; }
+    font-family: SFMono-Regular, Monaco, Menlo, "Cascadia Code", Consolas, "Liberation Mono", "Courier New", monospace; }
+  table.tags a.subject {
+    font-weight: normal; }
+  table td.linenr {
+    text-align: right; }
 
 /* styling of diffs (patchsets): commitdiff and blobdiff views */
 div.diff.header {
   font-weight: bold;
   background-color: #edece6;
-  margin: 4px 0 0 0;
-  padding: 4px 0px 2px 0px;
+  padding: 0.4em;
   border: solid #d9d8d1;
   border-width: 1px 0px 1px 0px;
   white-space: normal; }
@@ -576,7 +636,7 @@ div.diff.header {
 
 div.diff.extended_header {
   background-color: #f6f5ee;
-  padding: 2px 0px 2px 0px;
+  padding: 0.4em;
   margin: 0;
   white-space: normal; }
   div.diff.extended_header a.path,
@@ -653,57 +713,6 @@ div.chunk_block {
   div.chunk_block.ctx div div.diff.ctx {
     color: #404040; }
 
-div.index_include {
-  border: solid #d9d8d1;
-  border-width: 0px 0px 1px;
-  padding: 12px 8px; }
-
-div.search {
-  margin: 4px 1.8rem;
-  float: right;
-  padding: 0.85rem 0.85rem 0.5rem 0px; }
-  div.search input[type="checkbox"] {
-    margin: 0 0.2rem; }
-
-div.projsearch {
-  text-align: center;
-  margin: 20px 0px; }
-  div.projsearch form {
-    margin-bottom: 2px; }
-    div.projsearch form input[type="checkbox"] {
-      margin: 0 0.2rem; }
-
-td.linenr {
-  text-align: right; }
-
-a.linenr {
-  color: #999999;
-  text-decoration: none; }
-
-/* RSS logo */
-a.rss_logo {
-  float: right;
-  padding: 3px 5px;
-  line-height: 10px;
-  border: 1px solid;
-  border-color: #fcc7a5 #7d3302 #3e1a01 #ff954e;
-  color: #ffffff;
-  background-color: #ff6600;
-  font-weight: bold;
-  font-family: sans-serif;
-  font-size: 70%;
-  text-align: center;
-  text-decoration: none; }
-
-a.rss_logo:hover {
-  background-color: #ee5500; }
-
-a.rss_logo.generic {
-  background-color: #ff8800; }
-
-a.rss_logo.generic:hover {
-  background-color: #ee7700; }
-
 span.refs > span {
   padding: 0px 4px;
   font-size: 70%;
@@ -726,20 +735,6 @@ span.refs > span {
   span.refs > span.head {
     background-color: #aaffaa;
     border-color: #ccffcc #00cc33 #00cc33 #ccffcc; }
-
-span.refs.atnight {
-  color: #cc0000; }
-
-span.refs.match {
-  color: #e00000; }
-
-div.binary {
-  font-style: italic; }
-
-div.remote {
-  margin: 0.5rem 1.8rem;
-  border: 1px solid #d9d8d1;
-  display: inline-block; }
 
 /* JavaScript-based timezone manipulation */
 .popup {
