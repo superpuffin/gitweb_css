@@ -3,3 +3,4 @@
 
 npx browserslist@latest --update-db
 yarn run gulp
+git add dist

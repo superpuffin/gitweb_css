@@ -5,10 +5,10 @@
 
     /* Tables */
     --tbl-a-color: #777;
-    --tbl-highligt-even: #f7f7f7;
+    --tbl-highlight-even: #f7f7f7;
     --tbl-highlight-odd: #fff;
     --tbl-hover: #eee;
-    --th-padding: 0.1em 0.5em 0.05em 0.5em;
-    --td-padding: 0.1em 0.5em 0.1em 0.5em;
+    --th-padding: .2em .5em .5em .2em;
+    --td-padding: .2em .5em;
 
 }
