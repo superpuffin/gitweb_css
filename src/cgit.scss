@@ -8,6 +8,15 @@ div#cgit {
   color: var(--text);
   background: var(--bg);
   padding: 4px;
+
+  div.markdown-body{
+	  max-width: 800px;
+	  margin: 0 auto;
+	  padding: 2.3em;
+	  border-radius: .75rem;
+	  border: 1px solid grey;
+  }
+
   a {
     color: var(--link);
     text-decoration: none;

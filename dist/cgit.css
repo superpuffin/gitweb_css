@@ -20,6 +20,13 @@ div#cgit {
   background: var(--bg);
   padding: 4px;
 }
+div#cgit div.markdown-body {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2.3em;
+  border-radius: 0.75rem;
+  border: 1px solid grey;
+}
 div#cgit a {
   color: var(--link);
   text-decoration: none;
