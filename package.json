@@ -1,0 +1,38 @@
+{
+  "name": "gitweb_css",
+  "version": "1.0.0",
+  "description": "Gitweb stylesheet",
+  "main": "/bin/false",
+  "repository": "https://github.com/superpuffin/gitweb_css.git",
+  "author": "Yorgos Bos <yorgos.bos@outlook.com>",
+  "license": "MIT",
+  "private": true,
+  "devDependencies": {
+    "autoprefixer": "^10.2.6",
+    "browserslist": "^4.16.6",
+    "cssnano": "^5.0.6",
+    "del": "^6.0.0",
+    "esm": "^3.2.25",
+    "gulp": "^4.0.2",
+    "gulp-dart-sass": "^1.0.2",
+    "gulp-postcss": "^9.0.0",
+    "gulp-rename": "^2.0.0",
+    "gulp-sourcemaps": "^3.0.0",
+    "husky": "^6.0.0",
+    "postcss": "^8.3.2",
+    "postcss-normalize": "^10.0.0"
+  },
+  "browserslist": [
+    "defaults and not dead",
+    "not ie <= 11"
+  ],
+  "dependencies": {
+    "@csstools/normalize.css": "^11.0.1"
+  },
+  "installConfig": {
+    "pnp": false
+  },
+  "scripts": {
+    "prepare": "husky install"
+  }
+}
