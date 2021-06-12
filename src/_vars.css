@@ -5,9 +5,9 @@
 
     /* Tables */
     --tbl-a-color: #777;
-    --tbl-highlight-even: #dbdbdb;
+    --tbl-highlight-even: #e2e1e1;
     --tbl-highlight-odd: #fff;
-    --tbl-hover: #eee;
+    --tbl-hover: var(--tbl-highlight-even);
     --th-padding: .2em .5em .5em .2em;
     --td-padding: .2em .5em;
 
