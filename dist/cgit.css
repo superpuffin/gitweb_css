@@ -139,6 +139,9 @@ div#cgit table.list th {
   padding: var(--th-padding);
   vertical-align: baseline;
 }
+div#cgit table.list th a {
+  color: var(--text);
+}
 div#cgit table.list td {
   border: none;
   padding: var(--td-padding);
