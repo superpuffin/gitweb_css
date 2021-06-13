@@ -1,21 +1,33 @@
-// @use "sass:color" as c;
+@use "sass:color" as c;
+
+$btn-color: #027dc4;
+$btn-hover-color: c.adjust($btn-color, $lightness: 15%);
 
 :root {
   --link: blue;
   --text: #333;
+  --text-muted: rgb(104, 103, 103);
   --bg: white;
 
   /* Tables */
-  --tbl-a-color: #777;
+  // tbl-a == tabs
+  --tbl-a-color: rgb(66, 62, 62);
   --tbl-highlight-even: #e7e7e7;
   --tbl-highlight-odd: #fff;
   --tbl-hover: #eee;
-  --th-padding: 0.2em 0.5em 0.25em 1em;
-  --td-padding: 0.2em 0.5em 0.5em 1em;
+  --th-padding: 0.4em 0.5em 0.25em 1em;
+  --td-padding: 0.4em 0.5em 0.4em 1em;
 
-  --btn-color: #777070;
+  --btn-color: #{$btn-color};
+  --btn-color-hover: #{$btn-hover-color};
   --btn-txt-color: #fff;
   --ring-color: rgba(51, 139, 255, 0.6);
 
-  --border-color: #ccc;
+  --border-color: rgb(185, 229, 255);
+
+  // Hacky way to set the ref padding universally
+  --ref-padding: 0.05em 0.5em;
+
+  // Path breadcrumb
+  --text-bg: var(--bg);
 }

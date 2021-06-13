@@ -412,18 +412,22 @@ template {
 :root {
   --link: blue;
   --text: #333;
+  --text-muted: rgb(104, 103, 103);
   --bg: white;
   /* Tables */
-  --tbl-a-color: #777;
+  --tbl-a-color: rgb(66, 62, 62);
   --tbl-highlight-even: #e7e7e7;
   --tbl-highlight-odd: #fff;
   --tbl-hover: #eee;
-  --th-padding: 0.2em 0.5em 0.25em 1em;
-  --td-padding: 0.2em 0.5em 0.5em 1em;
-  --btn-color: #777070;
+  --th-padding: 0.4em 0.5em 0.25em 1em;
+  --td-padding: 0.4em 0.5em 0.4em 1em;
+  --btn-color: #027dc4;
+  --btn-color-hover: #16a8fd;
   --btn-txt-color: #fff;
   --ring-color: rgba(51, 139, 255, 0.6);
-  --border-color: #ccc;
+  --border-color: rgb(185, 229, 255);
+  --ref-padding: 0.05em 0.5em;
+  --text-bg: var(--bg);
 }
 
 div#cgit {
@@ -433,7 +437,6 @@ div#cgit {
   font-size: 11pt;
   color: var(--text);
   background: var(--bg);
-  padding: 4px;
 }
 div#cgit div.markdown-body {
   max-width: 800px;
@@ -465,35 +468,35 @@ div#cgit a.secondary {
 div#cgit a.branch-deco {
   color: #000;
   margin: 0px 0.5em;
-  padding: 0px 0.25em;
+  padding: var(--ref-padding);
   background-color: #88ff88;
   border: solid 1px #007700;
 }
 div#cgit a.tag-deco {
   color: #000;
   margin: 0px 0.5em;
-  padding: 0px 0.25em;
+  padding: var(--ref-padding);
   background-color: #ffff88;
   border: solid 1px #777700;
 }
 div#cgit a.tag-annotated-deco {
   color: #000;
   margin: 0px 0.5em;
-  padding: 0px 0.25em;
+  padding: var(--ref-padding);
   background-color: #ffcc88;
   border: solid 1px #777700;
 }
 div#cgit a.remote-deco {
   color: #000;
   margin: 0px 0.5em;
-  padding: 0px 0.25em;
+  padding: var(--ref-padding);
   background-color: #ccccff;
   border: solid 1px #000077;
 }
 div#cgit a.deco {
   color: #000;
   margin: 0px 0.5em;
-  padding: 0px 0.25em;
+  padding: var(--ref-padding);
   background-color: #ff8888;
   border: solid 1px #770000;
 }
@@ -501,25 +504,27 @@ div#cgit table {
   border-collapse: collapse;
 }
 div#cgit table.tabs {
-  border-bottom: solid 3px var(--border-color);
   border-collapse: collapse;
-  margin-top: 2em;
   margin-bottom: 0px;
   width: 100%;
+  background-color: var(--border-color);
 }
 div#cgit table.tabs td {
-  padding: 0.25em 1em;
-  vertical-align: bottom;
+  padding: 2.5em 0.5em 0.5em 0.5em;
+  vertical-align: middle;
+  border-radius: 1em;
 }
 div#cgit table.tabs td a {
   padding: 0.3em 0.75em;
+  margin-left: 0.15em;
+  margin-right: 0.15em;
   color: var(--tbl-a-color);
   font-size: 110%;
-  border-radius: 5px 5px 0 0;
+  border-radius: 3px 3px 0 0;
 }
 div#cgit table.tabs td a.active {
   color: #000;
-  background-color: var(--border-color);
+  background-color: var(--bg);
 }
 div#cgit table.tabs td.form {
   text-align: right;
@@ -904,7 +909,10 @@ div#cgit table.ssdiff span.del {
 }
 div#cgit table#header {
   width: 100%;
-  margin-bottom: 1em;
+  background-color: var(--border-color);
+}
+div#cgit table#header td {
+  padding: 0.2rem;
 }
 div#cgit table#header td.logo {
   width: 96px;
@@ -926,20 +934,21 @@ div#cgit table#header td.form {
   white-space: nowrap;
 }
 div#cgit table#header td.sub {
-  color: #777;
+  color: var(--text-muted);
   border-top: solid 1px #ccc;
   padding-left: 10px;
+  line-height: 1.3;
 }
 div#cgit div.path {
   margin: 0px;
   padding: 5px 2em 2px 2em;
-  color: #000;
-  background-color: #eee;
+  color: var(--text);
+  background-color: var(--path-bg);
 }
 div#cgit div.content {
-  margin: 0px;
+  margin: 0 auto;
   padding: 2em;
-  border-bottom: solid 3px #ccc;
+  border-bottom: solid 3px var(--border-color);
 }
 div#cgit div.error {
   color: red;
@@ -1001,9 +1010,9 @@ div#cgit div.diffstat-summary {
   padding-top: 0.5em;
 }
 div#cgit div.footer {
-  margin-top: 0.5em;
+  margin: 0.5em;
   text-align: center;
-  font-size: 80%;
+  font-size: 90%;
   color: #ccc;
 }
 div#cgit div.footer a {
@@ -1157,6 +1166,13 @@ div#cgit div.commit-subject a.deco {
 
 :root {
   tab-size: 4;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  margin: 0;
+  padding: 0;
 }
 
 a:focus,
@@ -1164,6 +1180,8 @@ button:focus,
 input:focus,
 select:focus {
   box-shadow: 0 0 0 3px var(--ring-color);
+  outline: none;
+  border-color: var(--text);
 }
 
 select,
@@ -1175,6 +1193,7 @@ input {
   padding: 0.2em 0.45em;
   margin-left: 0.15em;
   margin-right: 0.15em;
+  border: solid 1px var(--btn-color);
 }
 
 button,
@@ -1182,7 +1201,23 @@ input[type=submit] {
   background-color: var(--btn-color);
   color: var(--btn-txt-color);
   outline: none;
-  border: solid 1px currentColor;
+  border: none;
   margin-left: 0.15em;
   margin-right: 0.15em;
+  border-radius: 0.25em;
+  padding: 0.35em 0.75em;
+}
+button:hover, button:active,
+input[type=submit]:hover,
+input[type=submit]:active {
+  background-color: var(--btn-color-hover);
+}
+
+td:empty {
+  display: none;
+}
+
+table[summary="tree listing"] td:last-child,
+th:last-child {
+  text-align: right;
 }

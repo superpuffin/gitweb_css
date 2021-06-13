@@ -29,22 +29,29 @@ export function build_cssmin() {
   );
 }
 
+function bs_css() {
+  return src("src/**/*.scss")
+    .pipe(sass({ includePaths: ["node_modules"] }).on("error", sass.logError)) // Using gulp-sass
+    .pipe(postcss([postcssNormalize()]))
+    .pipe(dest("html/"))
+    .pipe(browserSync.stream());
+}
+
 export function build_css() {
   return src("src/**/*.scss")
     .pipe(sass({ includePaths: ["node_modules"] }).on("error", sass.logError)) // Using gulp-sass
     .pipe(postcss([postcssNormalize()]))
-    .pipe(dest("dist/"))
-    .pipe(browserSync.stream());
+    .pipe(dest("dist/"));
 }
 
 export function serve() {
-  build_css();
+  bs_css("html/");
 
   browserSync.init({
-    server: "./dist/",
+    server: "./html/",
   });
 
-  watch("src/*.scss", build_css);
+  watch("src/*.scss", bs_css);
 }
 
 export default series([clean, build_css, build_cssmin]);

@@ -1,5 +1,12 @@
 :root {
   tab-size: 4;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  margin: 0;
+  padding: 0;
 }
 
 a,
@@ -8,6 +15,8 @@ input,
 select {
   &:focus {
     box-shadow: 0 0 0 3px var(--ring-color);
+    outline: none;
+    border-color: var(--text);
   }
 }
 
@@ -20,6 +29,7 @@ input {
   padding: 0.2em 0.45em;
   margin-left: 0.15em;
   margin-right: 0.15em;
+  border: solid 1px var(--btn-color);
 }
 
 button,
@@ -28,7 +38,23 @@ input[type="submit"] {
   color: var(--btn-txt-color);
   //   font-weight: bold;
   outline: none;
-  border: solid 1px currentColor;
+  border: none;
   margin-left: 0.15em;
   margin-right: 0.15em;
+  border-radius: 0.25em;
+  padding: 0.35em 0.75em;
+
+  &:hover,
+  &:active {
+    background-color: var(--btn-color-hover);
+  }
+}
+
+td:empty {
+  display: none;
+}
+
+table[summary="tree listing"] td:last-child,
+th:last-child {
+  text-align: right;
 }
