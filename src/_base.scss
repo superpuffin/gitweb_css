@@ -50,10 +50,6 @@ input[type="submit"] {
   }
 }
 
-td:empty {
-  display: none;
-}
-
 table[summary="tree listing"] td:last-child,
 th:last-child {
   text-align: right;
