@@ -1,3 +1,4 @@
+@use "@csstools/normalize.css/normalize.css";
 @use 'vars';
 
 div#cgit {
@@ -9,23 +10,26 @@ div#cgit {
   background: var(--bg);
   padding: 4px;
 
-  div.markdown-body{
-	  max-width: 800px;
-	  margin: 0 auto;
-	  padding: 2.3em;
-	  border-radius: .75rem;
-	  border: 1px solid grey;
+  div.markdown-body {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2.3em;
+    border-radius: 2px;
+    box-shadow: -1px 1px 6px 2px rgba(0, 0, 0, 0.1);
   }
 
   a {
     color: var(--link);
     text-decoration: none;
+    border-radius: 0.2em;
+    padding-left: 0.1em;
+    padding-right: 0.1em;
     &:hover {
       text-decoration: underline;
     }
     &.button {
-      font-size: 80%;
-      padding: 0em 0.5em;
+      font-size: 90%;
+      margin: 0em 0.5em;
     }
     &.primary {
       font-size: 100%;
@@ -72,27 +76,28 @@ div#cgit {
   table {
     border-collapse: collapse;
     &.tabs {
-      border-bottom: solid 3px #ccc;
+      border-bottom: solid 3px var(--border-color);
       border-collapse: collapse;
       margin-top: 2em;
       margin-bottom: 0px;
       width: 100%;
       td {
-        padding: 0px 1em;
+        padding: 0.25em 1em;
         vertical-align: bottom;
         a {
-          padding: 2px 0.75em;
+          padding: 0.3em 0.75em;
           color: var(--tbl-a-color);
           font-size: 110%;
+          border-radius: 5px 5px 0 0;
           &.active {
             color: #000;
-            background-color: #ccc;
+            background-color: var(--border-color);
           }
         }
         &.form {
           text-align: right;
           form {
-            padding-bottom: 4px;
+            padding-bottom: 0.2em;
             white-space: nowrap;
           }
         }
@@ -137,9 +142,10 @@ div#cgit {
         font-weight: bold;
         padding: var(--th-padding);
         vertical-align: baseline;
-		a {
-			color: var(--text)
-		}
+        border-bottom: 1.5px solid black;
+        a {
+          color: var(--text);
+        }
       }
       td {
         border: none;
@@ -734,26 +740,18 @@ div#cgit {
   }
 }
 
-div#cgit table#header td.form form,
-div#cgit table#header td.form input,
-div#cgit table#header td.form select {
-  font-size: 90%;
-}
 div#cgit table.tabs a[href^="http://"]:after, div#cgit table.tabs a[href^="https://"]:after
 {
   content: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAQAAAAnOwc2AAAAAmJLR0QA/4ePzL8AAAAJcEhZcwAACxMAAAsTAQCanBgAAAAHdElNRQfgAhcJDQY+gm2TAAAAHWlUWHRDb21tZW50AAAAAABDcmVhdGVkIHdpdGggR0lNUGQuZQcAAABbSURBVAhbY2BABs4MU4CwhYHBh2Erww4wrGFQZHjI8B8IgUIscJWyDHcggltQhI4zGDCcRwhChPggHIggP1QoAVmQkSETrGoHsiAEsACtBYN0oDAMbgU6EBcAAL2eHUt4XUU4AAAAAElFTkSuQmCC);
   opacity: 0.5;
   margin: 0 0 0 5px;
 }
-div#cgit table.tabs td.form input,
-div#cgit table.tabs td.form select {
-  font-size: 90%;
-}
-div#cgit a.ls-blob,
-div#cgit a.ls-dir,
-div#cgit .ls-mod {
-  font-family: monospace;
-}
+
+// div#cgit a.ls-blob,
+// div#cgit a.ls-dir,
+// div#cgit .ls-mod {
+//   font-family: monospace;
+// }
 div#cgit table.blob td.hashes,
 div#cgit table.blob td.lines {
   margin: 0;
@@ -788,3 +786,6 @@ div#cgit div.commit-subject a.deco {
   margin-left: 1em;
   font-size: 75%;
 }
+
+// This a temporary hack
+@import "base";

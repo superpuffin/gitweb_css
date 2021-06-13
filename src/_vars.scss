@@ -1,0 +1,21 @@
+// @use "sass:color" as c;
+
+:root {
+  --link: blue;
+  --text: #333;
+  --bg: white;
+
+  /* Tables */
+  --tbl-a-color: #777;
+  --tbl-highlight-even: #e7e7e7;
+  --tbl-highlight-odd: #fff;
+  --tbl-hover: #eee;
+  --th-padding: 0.2em 0.5em 0.25em 1em;
+  --td-padding: 0.2em 0.5em 0.5em 1em;
+
+  --btn-color: #777070;
+  --btn-txt-color: #fff;
+  --ring-color: rgba(51, 139, 255, 0.6);
+
+  --border-color: #ccc;
+}
