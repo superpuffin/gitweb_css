@@ -9,6 +9,9 @@ $btn-hover-color: c.adjust($btn-color, $lightness: 15%);
   --text-muted: rgb(104, 103, 103);
   --bg: white;
 
+  --font-monospace: "SFMono-Regular", Consolas, "Liberation Mono", Menlo,
+    Courier, monospace;
+
   /* Tables */
   // tbl-a == tabs
   --tbl-a-color: rgb(66, 62, 62);
