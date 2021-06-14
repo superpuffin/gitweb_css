@@ -538,6 +538,9 @@ div#cgit {
   table#header {
     width: 100%;
     background-color: var(--border-color);
+    tr:first-of-type {
+      padding-top: var(--header-padding);
+    }
     td {
       &:first-of-type {
         padding-left: var(--header-padding);

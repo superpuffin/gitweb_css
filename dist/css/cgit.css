@@ -919,6 +919,9 @@ div#cgit table#header {
   width: 100%;
   background-color: var(--border-color);
 }
+div#cgit table#header tr:first-of-type {
+  padding-top: var(--header-padding);
+}
 div#cgit table#header td {
   padding: 0.2rem;
 }
