@@ -33,4 +33,7 @@ $btn-hover-color: c.adjust($btn-color, $lightness: 15%);
 
   // Path breadcrumb
   --text-bg: var(--bg);
+
+  // Header padding
+  --header-padding: .75em;
 }

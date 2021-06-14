@@ -430,6 +430,7 @@ template {
   --border-color: rgb(185, 229, 255);
   --ref-padding: 0.05em 0.5em;
   --text-bg: var(--bg);
+  --header-padding: .75em;
 }
 
 div#cgit {
@@ -515,6 +516,12 @@ div#cgit table.tabs td {
   padding: 2.5em 0.5em 0.5em 0.5em;
   vertical-align: middle;
   border-radius: 1em;
+}
+div#cgit table.tabs td:first-of-type {
+  padding-left: var(--header-padding);
+}
+div#cgit table.tabs td:last-of-type {
+  padding-right: var(--header-padding);
 }
 div#cgit table.tabs td a {
   padding: 0.3em 0.75em;
@@ -914,6 +921,12 @@ div#cgit table#header {
 }
 div#cgit table#header td {
   padding: 0.2rem;
+}
+div#cgit table#header td:first-of-type {
+  padding-left: var(--header-padding);
+}
+div#cgit table#header td:last-of-type {
+  padding-right: var(--header-padding);
 }
 div#cgit table#header td.logo {
   width: 96px;

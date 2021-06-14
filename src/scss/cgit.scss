@@ -85,6 +85,13 @@ div#cgit {
         padding: 2.5em 0.5em 0.5em 0.5em;
         vertical-align: middle;
         border-radius: 1em;
+
+        &:first-of-type {
+          padding-left: var(--header-padding);
+        }
+        &:last-of-type {
+          padding-right: var(--header-padding);
+        }
         a {
           padding: 0.3em 0.75em;
           margin-left: 0.15em;
@@ -532,6 +539,12 @@ div#cgit {
     width: 100%;
     background-color: var(--border-color);
     td {
+      &:first-of-type {
+        padding-left: var(--header-padding);
+      }
+      &:last-of-type {
+        padding-right: var(--header-padding);
+      }
       padding: 0.2rem;
       &.logo {
         width: 96px;
