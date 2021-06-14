@@ -1,7 +1,7 @@
 const attachFooter = () => {
   const footer = document.querySelector("div.footer");
   const bounds = footer.getBoundingClientRect();
-  const cs = window.getComputedStyle(f);
+  const cs = window.getComputedStyle(footer);
   const pc_to_int = (str) => Number(str.substring(0, str.length - 2));
   let padding = [cs.paddingLeft, cs.paddingRight];
   padding = padding.map(pc_to_int);

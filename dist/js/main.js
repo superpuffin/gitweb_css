@@ -3,7 +3,7 @@
 var attachFooter = function attachFooter() {
   var footer = document.querySelector("div.footer");
   var bounds = footer.getBoundingClientRect();
-  var cs = window.getComputedStyle(f);
+  var cs = window.getComputedStyle(footer);
 
   var pc_to_int = function pc_to_int(str) {
     return Number(str.substring(0, str.length - 2));
