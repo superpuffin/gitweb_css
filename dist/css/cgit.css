@@ -949,7 +949,6 @@ div#cgit div.path {
 div#cgit div.content {
   margin: 0 auto;
   padding: 2em;
-  border-bottom: solid 3px var(--border-color);
 }
 div#cgit div.error {
   color: red;
