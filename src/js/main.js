@@ -8,13 +8,14 @@ const attachFooter = () => {
   padding = padding.reduce((a, b) => a + b);
 
   if (bounds.bottom < window.innerHeight) {
-      footer.style.position = 'absolute';
-      footer.style.width = `calc(100% - ${padding}px)`
+    footer.style.position = "absolute";
+    footer.style.bottom = "0";
+    footer.style.width = `calc(100% - ${padding}px)`;
   }
 };
 
 document.addEventListener("readystatechange", (e) => {
-    if (e.target.readyState === "interactive") {
-        attachFooter()
-    }
+  if (e.target.readyState === "interactive") {
+    attachFooter();
+  }
 });

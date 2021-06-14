@@ -16,7 +16,8 @@ var attachFooter = function attachFooter() {
   });
 
   if (bounds.bottom < window.innerHeight) {
-    footer.style.position = 'absolute';
+    footer.style.position = "absolute";
+    footer.style.bottom = "0";
     footer.style.width = "calc(100% - ".concat(padding, "px)");
   }
 };
