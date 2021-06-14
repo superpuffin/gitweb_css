@@ -29,7 +29,7 @@
   },
   "browserslist": [
     "defaults and not dead",
-    "ie 6-11"
+    "not ie <= 11"
   ],
   "dependencies": {
     "@csstools/normalize.css": "^11.0.1"

@@ -1,28 +1,24 @@
 "use strict";
 
-var attachFooter = function attachFooter() {
-  var footer = document.querySelector("div.footer");
-  var bounds = footer.getBoundingClientRect();
-  var cs = window.getComputedStyle(footer);
+const attachFooter = () => {
+  const footer = document.querySelector("div.footer");
+  const bounds = footer.getBoundingClientRect();
+  const cs = window.getComputedStyle(footer);
 
-  var pc_to_int = function pc_to_int(str) {
-    return Number(str.substring(0, str.length - 2));
-  };
+  const pc_to_int = str => Number(str.substring(0, str.length - 2));
 
-  var padding = [cs.paddingLeft, cs.paddingRight];
+  let padding = [cs.paddingLeft, cs.paddingRight];
   padding = padding.map(pc_to_int);
-  padding = padding.reduce(function (a, b) {
-    return a + b;
-  });
+  padding = padding.reduce((a, b) => a + b);
 
   if (bounds.bottom < window.innerHeight) {
     footer.style.position = "absolute";
     footer.style.bottom = "0";
-    footer.style.width = "calc(100% - ".concat(padding, "px)");
+    footer.style.width = `calc(100% - ${padding}px)`;
   }
 };
 
-document.addEventListener("readystatechange", function (e) {
+document.addEventListener("readystatechange", e => {
   if (e.target.readyState === "interactive") {
     attachFooter();
   }
