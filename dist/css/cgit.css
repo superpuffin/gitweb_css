@@ -919,7 +919,7 @@ div#cgit table#header {
   width: 100%;
   background-color: var(--border-color);
 }
-div#cgit table#header tr:first-of-type {
+div#cgit table#header tr:first-of-type td {
   padding-top: var(--header-padding);
 }
 div#cgit table#header td {
