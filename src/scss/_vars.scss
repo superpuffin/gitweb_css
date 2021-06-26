@@ -1,12 +1,23 @@
 @use "sass:color" as c;
 
-$btn-color: #027dc4;
-$btn-hover-color: c.adjust($btn-color, $lightness: 15%);
+/*
+coolors:
+--------
+
+--rich-black-fogra-39: #0c120cff;
+--venetian-red: #c20114ff;
+--sonic-silver: #6d7275ff;
+--light-gray: #c7d6d5ff;
+--magnolia: #ecebf3ff;
+*/
+
+$btn-color: #C20114;
+$btn-hover-color: c.adjust($btn-color, $lightness: 5%);
 
 :root {
   --link: blue;
-  --text: #333;
-  --text-muted: rgb(104, 103, 103);
+  --text: #0C120C;
+  --text-muted: #6D7275;
   --bg: white;
 
   --font-monospace: "SFMono-Regular", Consolas, "Liberation Mono", Menlo,
@@ -15,7 +26,7 @@ $btn-hover-color: c.adjust($btn-color, $lightness: 15%);
   /* Tables */
   // tbl-a == tabs
   --tbl-a-color: rgb(66, 62, 62);
-  --tbl-highlight-even: #e7e7e7;
+  --tbl-highlight-even: #ECEBF3aa;
   --tbl-highlight-odd: #fff;
   --tbl-hover: #eee;
   --th-padding: 0.4em 0.5em 0.25em 1em;
@@ -24,9 +35,9 @@ $btn-hover-color: c.adjust($btn-color, $lightness: 15%);
   --btn-color: #{$btn-color};
   --btn-color-hover: #{$btn-hover-color};
   --btn-txt-color: #fff;
-  --ring-color: rgba(51, 139, 255, 0.6);
+  --ring-color: #{rgba($btn-hover-color, .4)};
 
-  --border-color: rgb(185, 229, 255);
+  --border-color: #C7D6D5;
 
   // Hacky way to set the ref padding universally
   --ref-padding: 0.05em 0.5em;

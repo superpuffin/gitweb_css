@@ -16,7 +16,7 @@ select {
   &:focus {
     box-shadow: 0 0 0 3px var(--ring-color);
     outline: none;
-    border-color: var(--text);
+    border-color: none;
   }
 }
 
@@ -26,7 +26,7 @@ input {
   outline: none;
   box-shadow: none;
   border-radius: 0.25em;
-  padding: 0.2em 0.45em;
+  padding: 0.4em 0.4em;
   margin-left: 0.15em;
   margin-right: 0.15em;
   border: solid 1px var(--btn-color);
@@ -42,7 +42,7 @@ input[type="submit"] {
   margin-left: 0.15em;
   margin-right: 0.15em;
   border-radius: 0.25em;
-  padding: 0.35em 0.75em;
+  padding: 0.45em 0.8em;
 
   &:hover,
   &:active {

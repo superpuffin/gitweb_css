@@ -19,3 +19,5 @@ document.addEventListener("readystatechange", (e) => {
     attachFooter();
   }
 });
+
+window.addEventListener("resize", attachFooter)
